@@ -1,0 +1,12 @@
+plugins {
+  id "org.sonarqube" version "4.4.0.3225"
+}
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "my-project"
+    property "sonar.host.url", "http://your-sonarqube-server"
+    property "sonar.login", "${SONAR_TOKEN}"
+    property "sonar.sources", "src,lpcs"
+  }
+}
