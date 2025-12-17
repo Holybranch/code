@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네버 로그인</title>
+    <style>
+        /*내가 만든 맛있게 구운 CSS. 바삭함에 따라서 퀄리티가 변함*/
+        a {         
+            text-decoration: none;
+        }
+        body {
+            background: white;
+            font-family: 'Malgun Gothic', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        .never-logo {
+            font-size: 38px;
+            font-weight: 900;
+            color: #1bd5ff;
+            transform: scaleX(1.1);
+            margin-top: 45px;
+            margin-bottom: 38px;
+            letter-spacing: 3px;
+            text-align: center;
+            -webkit-text-stroke: 3px #1bd5ff;
+        }
+        .never-container {
+            border: 1px solid rgb(223, 223, 223);
+            max-width: 390px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 10px;
+            padding: 24px;
+            text-align: center;
+        }
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 18px;
+            width: 100%;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-bottom: 10px;
+            width: 100%;
+            border-radius: 1px;
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+        .floating-label-group {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 1px;
+        }
+        .floating-label-group:first-child .login-input {
+            border-radius: 12px 12px 0 0;
+        }
+        .floating-label-group:last-child .login-input {
+            border-radius: 0 0 12px 12px;
+            border-top: none;
+        }
+        .floating-label {
+            position: absolute;
+            left: 16px;
+            top: 18px;
+            color: #888;
+            font-size: 16px;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        .login-input:focus + .floating-label,
+        .login-input:not(:placeholder-shown) + .floating-label {
+            top: 2px;
+            left: 10px;
+            font-size: 12px;
+        }
+        .login-input {
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+            padding: 18px 16px 6px 16px;
+            margin-bottom: 0;
+            border: 1.5px solid #bebebe;
+            border-radius: 0;
+            font-size: 16px;
+            outline: none;
+            background: white;
+            min-height: 60px;
+        }
+        .login-input:focus {
+            border: 2px solid #aceeff;
+            box-shadow: 0 0 0 1px #b2f2d6 inset;
+            background: #f6fff9;
+            z-index: 2;
+        }
+        .login-btn {
+            width: 100%;
+            height: 52px;
+            box-sizing: border-box;
+            padding: 12px 0;
+            background: #a5adb8;
+            color: #fff;
+            border: none;
+            margin-top: 50px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 400;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.2s;
+        }
+        .login-links {
+            margin-top: 2px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #888;
+            line-height: 17px;
+            padding: 24px 0;
+            text-align: center;
+            letter-spacing: -1px;
+        }
+        .login-link {
+            color: #888;
+            text-decoration: none;
+            margin: 0 2px;
+            transition: color 0.2s;
+        }
+        .login-error {
+            display: inline-block;
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: -.5px;
+            color: #ff0101;
+            vertical-align: middle;
+            word-break: keep-all;
+        }
+        .divider {
+            color: #dadada;
+            margin: 0 2px;
+        }
+        .copyright {
+            margin-top: 24px;
+            color: #aaa;
+            font-size: 13px;
+        }
+        .keep_check::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-position: -292px -236px;
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+        }
+        .keep_check .keep_text {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 400px;
+            line-height: 20px;
+            color: #767678;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        .keep_check::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-position: -292px -236px;
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+        }
+        .ip_text {
+            display: inline-block;
+            padding-right: 4px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            letter-spacing: -.4px;
+            color: #303038;
+        }
+        .switch_off {
+            display: inline-block;
+            padding-right: 5px;
+        }
+        .switch_off, .ip_check .switch_on {
+            display: none;
+            font-size: 11px;
+            font-weight: 700;
+            line-height: 20px;
+            letter-spacing: -.3px;
+            color: #fff;
+        }
+        .switch_btn {
+            display: block;
+            position: relative;
+            width: 60px;
+            height: 20px;
+            margin: 0 auto;
+            border-radius: 12px;
+            background-color: #a5adb8;
+            box-sizing: border-box;
+            cursor: pointer;
+            text-align: right;
+        }
+        label {
+            cursor: pointer;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 45px;
+            height: 20px;
+        }
+        .switch-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 22px;
+        }
+        .switch-slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 3px;
+            background-color: white;
+            transition: .4s;
+            top: 2px;
+            border-radius: 50%;
+        }
+        .switch input:checked + .switch-slider {
+            background-color: #cbf4ff;
+        }
+        .switch input:checked + .switch-slider:before {
+            transform: translateX(24px);
+        }
+        .ip-security {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .ip-security-label {
+            font-size: 14px;
+            color: #303038;
+        }
+        .box1 {
+            width: 460px;
+            height: 160px;
+            margin: 0 auto;
+            background-color: white;
+            border: 1px solid rgb(224, 224, 224);
+        }
+        .lang-select-box {
+            width: 30px;
+            height: 10px;
+            background-color: white;
+            right: 10%;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        /*여기까지는 디자인이라 상관 X*/
+    </style>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const idInput = document.getElementById('id-input');
+        const pwInput = document.getElementById('pw-input');
+        const loginForm = document.querySelector('.login-form');
+        const loginError = document.querySelector('.login-error');
+        const loginBtn = document.querySelector('.login-btn');
+
+        let publicKey = null;
+
+        // 공개키 로드
+        fetch('http://localhost:5000/public-key')
+            .then(res => res.json())
+            .then(data => {
+                publicKey = { n: BigInt(data.n), e: BigInt(data.e) };
+                console.log('Public key loaded');
+            })
+            .catch(err => {
+                console.error('Failed to load public key', err);
+            });
+
+        // RSA 암호화 함수들
+        function textToInt(text) {
+            const encoder = new TextEncoder();
+            const bytes = encoder.encode(text);
+            let hex = '';
+            for (let byte of bytes) {
+                hex += byte.toString(16).padStart(2, '0');
+            }
+            return BigInt('0x' + hex);
+        }
+
+        function modPow(base, exp, mod) {
+            let result = 1n;
+            base = base % mod;
+            while (exp > 0n) {
+                if (exp % 2n === 1n) result = (result * base) % mod;
+                base = (base * base) % mod;
+                exp /= 2n;
+            }
+            return result;
+        }
+
+        function encrypt(plaintext, n, e) {
+            const m = textToInt(plaintext);
+            if (m >= n) throw new Error('Message too long');
+            return modPow(m, e, n);
+        }
+
+        function bigintToBase64(bigint) {
+            let hex = bigint.toString(16);
+            if (hex.length % 2) hex = '0' + hex;
+            let bytes = new Uint8Array(hex.length / 2);
+            for (let i = 0; i < bytes.length; i++) {
+                bytes[i] = parseInt(hex.substr(i * 2, 2), 16);
+            }
+            let binary = '';
+            for (let byte of bytes) {
+                binary += String.fromCharCode(byte);
+            }
+            return btoa(binary);
+        }
+
+        // 버튼 활성화
+        function updateButtonState() {
+            console.log('id value:', idInput.value, 'pw value:', pwInput.value);
+            if (idInput.value && pwInput.value) {
+                loginBtn.disabled = false;
+                loginBtn.style.cursor = 'pointer';
+                console.log('Button set to green');
+            } else {
+                loginBtn.disabled = true;
+                loginBtn.style.cursor = 'default';
+                console.log('Button set to gray');
+            }
+        }
+
+        idInput.addEventListener('input', updateButtonState);
+        pwInput.addEventListener('input', updateButtonState);
+        updateButtonState();
+
+        // 로그인 폼 submit
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const id = idInput.value.trim();
+            const pw = pwInput.value.trim();
+
+            if (!id) {
+                loginError.textContent = '아이디 또는 전화번호를 입력해 주세요.';
+                loginError.style.color = 'red';
+                loginError.style.display = 'block';
+                idInput.focus();
+                return;
+            }
+            if (!pw) {
+                loginError.textContent = '비밀번호를 입력해 주세요.';
+                loginError.style.color = 'red';
+                loginError.style.display = 'block';
+                pwInput.focus();
+                return;
+            }
+
+            if (!publicKey) {
+                loginError.textContent = '키 로드 중... 잠시 후 다시 시도하세요.';
+                loginError.style.color = 'red';
+                loginError.style.display = 'block';
+                return;
+            }
+
+            try {
+                const cipherInt = encrypt(pw, publicKey.n, publicKey.e);
+                const cipherB64 = bigintToBase64(cipherInt);
+
+                fetch('http://localhost:5000/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id, pw: cipherB64 })
+                })
+                .then(res => res.json().then(data => ({status: res.status, body: data})))
+                .then(obj => {
+                    if (obj.status === 200) {
+                        loginError.textContent = '로그인 성공!';
+                        loginError.style.color = 'green';
+                    } else {
+                        loginError.textContent = obj.body.message || '아이디 또는 비밀번호가 틀렸습니다.';
+                        loginError.style.color = 'red';
+                    }
+                    loginError.style.display = 'block';
+                })
+                .catch(err => {
+                    loginError.textContent = '서버 연결 오류';
+                    loginError.style.color = 'red';
+                    loginError.style.display = 'block';
+                });
+            } catch (err) {
+                loginError.textContent = '암호화 오류';
+                loginError.style.color = 'red';
+                loginError.style.display = 'block';
+            }
+        });
+    });
+    </script>
+</head>
+<body>
+    <header style="width:100%;display:flex;position:relative;z-index:10;">
+    </header>
+    <div class="never-logo">It is It</div>
+    <div class="never-container">
+        <form class="login-form" autocomplete="off">
+            <div class="input-group">
+                <div class="floating-label-group">
+                    <input class="login-input" type="text" name="id" id="id-input" autofocus placeholder=" ">
+                    <label class="floating-label" for="id-input">아이디 또는 전화번호</label>
+                </div>
+                <div class="floating-label-group">
+                    <input class="login-input" type="password" name="pw" id="pw-input" placeholder=" ">
+                    <label class="floating-label" for="pw-input">비밀번호</label>
+                </div>
+            </div>
+            <div class="login-error"></div>
+            <button class="login-btn" type="submit">로그인</button>
+        </form>
+    </div>
+    <div class="login-links">
+        <a href="index2.html" class="login-link">비밀번호 찾기</a>
+        <span class="divider">|</span>
+        <a href="index3.html" class="login-link">아이디 찾기</a>
+        <span class="divider">|</span>
+        <a href="/signup" class="login-link">회원가입</a>
+    </div>
+</body>
+</html>
