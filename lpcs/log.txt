@@ -1,0 +1,74 @@
+-- Active: 1764228003722@@127.0.0.1@3306@code
+[2025-12-04 02:02:05] LOGIN SUCCESS: username=user1
+[2025-12-04 02:02:05] LOGIN SUCCESS: username=user1
+[2025-12-04 02:02:15] LOGIN FAIL: username=user1, reason=decrypt_fail
+[2025-12-04 02:02:35] LOGIN FAIL: username=ㅑㅓㅣㅘㅣㅚ, reason=user_not_found
+[2025-12-04 02:02:35] LOGIN FAIL: username=ㅑㅓㅣㅘㅣㅚ, reason=user_not_found
+[2025-12-04 13:12:39] LOGIN SUCCESS: username=user1
+[2025-12-04 16:56:48] LOGIN SUCCESS: username=user1
+[2025-12-04 16:56:48] LOGIN SUCCESS: username=user1
+[2025-12-04 16:56:49] LOGIN SUCCESS: username=user1
+[2025-12-04 16:56:51] LOGIN FAIL: username=user1, reason=wrong_password
+[2025-12-04 16:56:51] LOGIN FAIL: username=user1, reason=wrong_password
+[2025-12-04 17:02:05] LOGIN SUCCESS: username=user1
+[2025-12-04 17:02:08] LOGIN SUCCESS: username=user1
+[2025-12-04 17:02:11] LOGIN SUCCESS: username=user1
+[2025-12-04 17:02:26] LOGIN SUCCESS: username=user1
+[2025-12-04 17:03:12] LOGIN SUCCESS: username=user1
+[2025-12-04 17:03:19] LOGIN SUCCESS: username=user1
+[2025-12-04 17:03:20] LOGIN SUCCESS: username=user1
+[2025-12-04 17:03:35] LOGIN SUCCESS: username=user1
+[2025-12-04 17:03:35] LOGIN SUCCESS: username=user1
+[2025-12-04 17:03:36] LOGIN SUCCESS: username=user1
+[2025-12-04 17:03:36] LOGIN SUCCESS: username=user1
+[2025-12-04 17:03:37] LOGIN SUCCESS: username=user1
+[2025-12-04 17:12:59] LOGIN SUCCESS: username=user1
+[2025-12-04 17:13:33] LOGIN SUCCESS: username=user1
+[2025-12-04 17:15:17] LOGIN SUCCESS: username=user1
+[2025-12-04 17:15:17] LOGIN SUCCESS: username=user1
+[2025-12-04 17:25:40] LOGIN FAIL: username=user1, reason=wrong_password
+[2025-12-04 17:25:50] LOGIN FAIL: username=user1, reason=wrong_password
+[2025-12-04 17:25:52] LOGIN FAIL: username=user1, reason=wrong_password
+[2025-12-04 17:29:08] LOGIN FAIL: username=user1, reason=decrypt_fail
+[2025-12-04 17:29:25] REGISTER FAIL: username=user, reason=decrypt_fail
+[2025-12-04 17:29:27] REGISTER FAIL: username=user, reason=decrypt_fail
+[2025-12-04 17:29:35] REGISTER FAIL: username=user3, reason=decrypt_fail
+[2025-12-04 17:29:36] REGISTER FAIL: username=user3, reason=decrypt_fail
+[2025-12-04 17:37:09] LOGIN FAIL: username=user1, reason=decrypt_fail
+[2025-12-04 17:37:14] LOGIN FAIL: username=user1, reason=decrypt_fail
+[2025-12-04 17:37:16] LOGIN FAIL: username=user1, reason=decrypt_fail
+[2025-12-04 17:38:35] LOGIN SUCCESS: username=user1
+[2025-12-04 17:38:44] LOGIN SUCCESS: username=user1
+[2025-12-04 17:38:46] LOGIN SUCCESS: username=user1
+[2025-12-04 17:41:35] LOGIN SUCCESS: username=user1
+[2025-12-04 17:41:40] LOGIN SUCCESS: username=user1
+[2025-12-04 17:42:44] LOGIN FAIL: username=user1, reason=decrypt_fail
+[2025-12-04 17:48:09] LOGIN SUCCESS: username=user1
+[2025-12-04 17:48:14] LOGIN SUCCESS: username=user1
+[2025-12-04 17:48:16] LOGIN SUCCESS: username=user1
+[2025-12-04 17:48:16] LOGIN SUCCESS: username=user1
+[2025-12-04 17:48:20] LOGIN SUCCESS: username=user1
+[2025-12-04 17:55:47] LOGIN FAIL: username=user1, reason=decrypt_fail
+[2025-12-04 17:56:50] LOGIN FAIL: username=user1, reason=decrypt_fail
+[2025-12-04 17:58:47] LOGIN FAIL: username=user1, reason=decrypt_fail
+[2025-12-04 18:00:23] LOGIN FAIL: username=user1, reason=decrypt_fail
+[2025-12-07 23:09:44] LOGIN FAIL: username=user1, reason=decrypt_fail
+[2025-12-07 23:10:04] REGISTER FAIL: username=3255, reason=decrypt_fail
+[2025-12-07 23:10:16] LOGIN FAIL: username=3255, reason=user_not_found
+[2025-12-07 23:10:16] LOGIN FAIL: username=3255, reason=user_not_found
+[2025-12-16 16:56:46] LOGIN FAIL: username=3255, reason=user_not_found
+[2025-12-16 16:56:46] LOGIN FAIL: username=3255, reason=user_not_found
+[2025-12-16 16:56:50] LOGIN FAIL: username=3255, reason=user_not_found
+[2025-12-16 17:07:58] LOGIN FAIL: username=3255, reason=user_not_found
+[2025-12-16 17:08:18] REGISTER SUCCESS: username=1111
+[2025-12-16 17:08:28] LOGIN SUCCESS: username=1111
+[2025-12-16 17:08:36] LOGIN FAIL: username=1111, reason=wrong_password
+[2025-12-16 17:08:36] LOGIN FAIL: username=1111, reason=wrong_password
+[2025-12-16 17:09:02] LOGIN SUCCESS: username=1111
+[2025-12-16 17:09:08] LOGIN FAIL: username=1111, reason=wrong_password
+[2025-12-16 17:10:11] LOGIN FAIL: username=3255, reason=user_not_found
+[2025-12-16 17:10:13] LOGIN FAIL: username=3255, reason=user_not_found
+[2025-12-16 17:10:15] LOGIN FAIL: username=3255, reason=user_not_found
+[2025-12-16 17:13:51] LOGIN FAIL: username=3255, reason=user_not_found
+[2025-12-16 17:20:22] LOGIN FAIL: username=1111, reason=user_not_found
+
